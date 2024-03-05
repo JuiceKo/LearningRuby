@@ -1,0 +1,5 @@
+<h1> Edit First App Post </h1>
+
+<%= render partial: "form", locals: {first_app_post: @first_app_post} %>
+
+<%= button_to "Delete", @first_app_post, method: :delete, data: {turbo_confirm: "Are you sure?"} %>

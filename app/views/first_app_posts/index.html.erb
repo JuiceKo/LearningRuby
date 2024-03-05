@@ -1,0 +1,8 @@
+<h1> Blog Test </h1>
+<% @first_app_posts.each do |first_app_post| %>
+  <div>
+    <h2><%= link_to first_app_post.titl, first_app_post %></h2>
+    <% #"/first_app_posts/#{first_app_post.id}" %>
+    <%= first_app_post.body %>
+  </div>
+<% end %>
