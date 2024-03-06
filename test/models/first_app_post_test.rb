@@ -38,7 +38,6 @@ class FirstAppPostTest < ActiveSupport::TestCase
    test "scheduled? return false for published first app post"do
      refute FirstAppPost.new(published_at: 1.year.ago).scheduled?
    end
-
    def draft_first_app_post
      FirstAppPost.new(published_at: nil)
    end
