@@ -15,3 +15,7 @@ user.update!(
   password: "password",
   password_confirmation: "password"
 )
+
+#100.times do |i|
+  #FirstAppPost.create titl: "First App Post #{i}", content: "Hello world #{i}", published_at: Time.current
+  # end
