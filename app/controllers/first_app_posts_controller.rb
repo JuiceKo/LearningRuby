@@ -4,12 +4,10 @@ class FirstAppPostsController < ApplicationController
 
 
   def index
-    @first_app_posts = FirstAppPost.all
+    @first_app_posts = user_signed_in? ? FirstAppPost.sorted : FirstAppPost.published.sorted
   end
 
   def show
-  rescue ActiveRecord::RecordNotFound
-    redirect_to root_path
   end
 
   def new
@@ -47,13 +45,13 @@ class FirstAppPostsController < ApplicationController
   private
 
   def set_first_app_post
-    @first_app_post = FirstAppPost.find(params[:id])
+    @first_app_post = user_signed_in? ? FirstAppPost.find(params[:id]) : FirstAppPost.published.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_to root_path
   end
 
   def first_app_post_params
-    params.require(:first_app_post).permit(:titl, :body)
+    params.require(:first_app_post).permit(:titl, :body, :published_at)
   end
 
 end

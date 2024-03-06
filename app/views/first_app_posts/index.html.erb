@@ -2,6 +2,11 @@
 <% @first_app_posts.each do |first_app_post| %>
   <div>
     <h2><%= link_to first_app_post.titl, first_app_post %></h2>
+    <% if first_app_post.draft? %>
+      <div class="p-2 rounded bg-gray-100 text-gray-900"> Draft </div>
+    <% elsif first_app_post.scheduled? %>
+      <div class="p-2 rounded bg-red-600 text-blue-900"> Scheduled </div>
+    <% end %>
     <% #"/first_app_posts/#{first_app_post.id}" %>
     <%= first_app_post.body %>
   </div>
