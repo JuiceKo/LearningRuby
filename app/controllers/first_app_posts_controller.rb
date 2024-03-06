@@ -6,6 +6,10 @@ class FirstAppPostsController < ApplicationController
   def index
     @first_app_posts = user_signed_in? ? FirstAppPost.sorted : FirstAppPost.published.sorted
     @pagy, @first_app_posts = pagy(@first_app_posts)
+  rescue Pagy::OverflowError
+    redirect_to root_path(page: 1)
+    #params[:page] = 1
+    #retry
   end
 
   def show

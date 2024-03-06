@@ -16,6 +16,7 @@ user.update!(
   password_confirmation: "password"
 )
 
-#100.times do |i|
-  #FirstAppPost.create titl: "First App Post #{i}", content: "Hello world #{i}", published_at: Time.current
-  # end
+100.times do |i|
+  first_app_post = FirstAppPost.where(titl: "First App post #{i}").first_or_initialize
+  first_app_post.update(content: "Hello world #{i}", published_at: Time.current)
+end
