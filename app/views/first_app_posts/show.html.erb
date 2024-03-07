@@ -1,3 +1,7 @@
 <%= link_to "Edit", edit_first_app_post_path(@first_app_post) if user_signed_in? %>
+
+<%=image_tag @first_app_post.cover_image if @first_app_post.cover_image.present? %>
 <h1> <%= @first_app_post.titl %></h1>
 <%= @first_app_post.content %>
+
+<!-- #image_tag @first_app_post.cover_image -->

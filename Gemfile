@@ -72,5 +72,5 @@ gem "devise", "~> 4.9"
 
 gem "tailwindcss-rails", "~> 2.3"
 gem 'foreman', '~> 0.87.2'
-
 gem "pagy", "~> 7.0"
+gem 'world-flags'

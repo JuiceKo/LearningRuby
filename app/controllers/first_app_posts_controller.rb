@@ -56,7 +56,7 @@ class FirstAppPostsController < ApplicationController
   end
 
   def first_app_post_params
-    params.require(:first_app_post).permit(:titl, :content, :published_at)
+    params.require(:first_app_post).permit(:titl, :content, :cover_image, :published_at)
   end
 
 end

@@ -13,6 +13,17 @@
   </div>
 
   <div>
+    <%= form.label :cover_image %>
+    <% if first_app_post.cover_image.present?  %>
+      <div id="<% dom_id(first_app_post, :cover_image) %>">
+        <%=image_tag @first_app_post.cover_image, class: "w-1/3" if @first_app_post.cover_image.present? %>
+        <%= link_to "Remove cover image", first_app_post_cover_image_path(first_app_post), data: {turbo_method: :delete, turbo_confirm: "Are you sure ? Any otherchanges you made will be lost"} %>
+      </div>
+    <% end %>
+    <%= form.file_field :cover_image %>
+  </div>
+
+  <div>
     <%= form.label :content %>
     <%= form.rich_text_area :content %>
   </div>

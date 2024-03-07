@@ -1,6 +1,7 @@
 <h1> Blog Test </h1>
 <% @first_app_posts.each do |first_app_post| %>
   <div>
+    <%= image_tag first_app_post.cover_image if first_app_post.cover_image.present? %>
     <h2><%= link_to first_app_post.titl, first_app_post %></h2>
     <% if first_app_post.draft? %>
       <div class="p-2 rounded bg-gray-100 text-gray-900"> Draft </div>
